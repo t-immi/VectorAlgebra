@@ -12,6 +12,7 @@ module VectorAlgebra
     end
 
     def [](index)
+      raise IndexError if index >= dimension
       @components[index]
     end
 
@@ -52,6 +53,7 @@ module VectorAlgebra
     end
 
     def project_onto(other)
+      raise ZeroVectorError if other.dot(other).zero?
       coef = dot(other) / other.dot(other)
       other * coef
     end

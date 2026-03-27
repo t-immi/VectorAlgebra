@@ -6,6 +6,7 @@ module VectorAlgebra
     end
 
     def cross(other, orientation: :right)
+      check_dimension(other)
       result = Vector3D.new(
         y * other.z - z * other.y,
         z * other.x - x * other.z,
