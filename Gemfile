@@ -1,5 +1,10 @@
 source "https://rubygems.org"
 
+#gemspec
+gem "minitest"
+
+gem "fiddle"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.1.3"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
@@ -62,5 +67,5 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
-  gem "selenium-webdriver"
+  #gem "selenium-webdriver"
 end
