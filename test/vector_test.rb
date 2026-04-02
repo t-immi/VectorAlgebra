@@ -165,7 +165,7 @@ class VectorTest < Minitest::Test
     v1 = VectorAlgebra::Vector.new(1, 0)
     v2 = VectorAlgebra::Vector.new(0, 1)
 
-    assert v1.orthogonal?(v2)
+    assert_equal true, v1.orthogonal?(v2)
   end
 
   def test_orthogonal_error

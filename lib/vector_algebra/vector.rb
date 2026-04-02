@@ -53,8 +53,8 @@ module VectorAlgebra
     end
 
     def project_onto(other)
-      raise ZeroVectorError if other.dot(other).zero?
-      coef = dot(other) / other.dot(other)
+      raise ZeroVectorError if other.norm.zero?
+      coef = dot(other) / other.norm
       other * coef
     end
 
