@@ -174,4 +174,13 @@ class VectorTest < Minitest::Test
 
     assert_raises(VectorAlgebra::DimensionError) { v1.orthogonal?(v2) }
   end
+
+  def test_you_cant_call_private_check_dimension
+    v1 = VectorAlgebra::Vector.new(1, 0)
+    v2 = VectorAlgebra::Vector.new(1, 0, 0)
+
+    assert_raises(NoMethodError) do
+      v1.check_dimension(v2)
+    end
+  end
 end
