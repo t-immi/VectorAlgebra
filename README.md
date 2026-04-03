@@ -1,24 +1,79 @@
-# README
+# VectorAlgebra
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+VectorAlgebra — это библиотека на Ruby, предоставляющая базовые инструменты для работы с векторами и решения задач векторной геометрии в двумерном и трёхмерном пространстве.
 
-Things you may want to cover:
+## Основные возможности
+Векторные классы:
+Vector — вектор произвольной размерности
+Vector2D — специализированный класс для двумерных векторов
+Vector3D — специализированный класс для трёхмерных векторов
 
-* Ruby version
+## Базовые операции
+1. Сложение и вычитание векторов
+2. Умножение на скаляр
+3. Скалярное произведение (dot)
+4. Вычисление нормы (длины) вектора
+5. Нормализация вектора
+6, Вычисление угла между векторами
+7. Проверка на параллельность
+8. Проверка на ортогональность
+9. Проекция одного вектора на другой
+10. Операции в трёхмерном пространстве
+11. Векторное произведение (cross) с учётом ориентации (правая/левая система)
+12. Геометрические вычисления
 
-* System dependencies
+## Модуль Geometry предоставляет следующие функции:
 
-* Configuration
+1. Расстояние между точками
+2. Площадь параллелограмма (2-х и 3-х мерный случай)
+3. Площадь треугольника
+4. Объём параллелепипеда (смешанное произведение)
+5. Расстояние от точки до прямой (в 3D)
+6. Расстояние от точки до плоскости
 
-* Database creation
+## Пример использования
+### Двумерный случай
 
-* Database initialization
+```Ruby
+require_relative "vector_algebra"
 
-* How to run the test suite
+include VectorAlgebra
 
-* Services (job queues, cache servers, search engines, etc.)
+a = Vector2D.new(3, 4)
+b = Vector2D.new(1, 2)
 
-* Deployment instructions
+sum = a + b
+difference = a - b
+dot_product = a.dot(b)
+norm = a.norm
 
-* ...
+distance = Geometry.distance(a, b)
+triangle_area = Geometry.triangle_area(a, b)
+
+```
+
+### Трёхмерный случай:
+
+```Ruby
+a = Vector3D.new(1, 0, 0)
+b = Vector3D.new(0, 1, 0)
+c = Vector3D.new(0, 0, 1)
+
+cross_product = a.cross(b)
+volume = Geometry.parallelepiped_volume(a, b, c)
+
+```
+## Обработка ошибок
+
+Библиотека определяет собственные типы исключений:
+
+*DimensionError* — возникает при попытке выполнения операций над векторами разной размерности
+
+*ZeroVectorError* — возникает при операциях, не определённых для нулевого вектора (например, нормализация)
+
+### Пример:
+
+```Ruby
+v = Vector.new(0, 0)
+v.normalize # вызовет ZeroVectorError
+```
